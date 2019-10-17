@@ -1,4 +1,4 @@
-import utils
+from . import utils
 
 
 def return_dict(key, tag):

@@ -1,5 +1,4 @@
-import default_html_schema
-import utils
+from . import utils, html_schema
 
 
 class Richtext:
@@ -8,7 +7,7 @@ class Richtext:
 
     def __init__(self, schema):
         if schema is None:
-            schema = default_html_schema
+            schema = html_schema
 
         self.nodes = schema.nodes
         self.marks = schema.marks
