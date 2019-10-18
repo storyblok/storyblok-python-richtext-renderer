@@ -24,7 +24,13 @@ def is_function(fn: any) -> bool:
 
 
 def get_tag(tag, ending):
-    return "<{}{}>".format(tags, ending)
+    ''' Returns a tag representation '''
+    return "<{}{}>".format(tag, ending)
+
+
+def get_closing_tag(tag: str) -> str:
+    ''' Returns a closing tag representation '''
+    return "</{}>".format(tag)
 
 
 def render_tag(tags, ending):
@@ -49,5 +55,32 @@ def render_tag(tags, ending):
     return "".join(_tag)
 
 
-def render_opening_tag(tag):
+def render_opening_tag(tag: str) -> str:
+    ''' Returns a opening tag '''
     return render_tag(tag, '')
+
+
+def render_closing_tag(tags: any) -> str:
+    '''
+    Returns a opening tag
+
+    Parameters
+    ----------
+    tags: can be a single string, list of objects with tag field or list of strings
+
+    Returns
+    -------
+    tag string 
+    '''
+    if is_string(tags):
+        return get_closing_tag(tags)
+    
+    _all = []
+
+    for tag in tags[::-1]:
+        if is_string(tag):
+            _all.append(get_closing_tag(tag))
+        else:
+            _all.append(get_closing_tag(tag.get('tag')))
+    
+    return "".join(_all)
