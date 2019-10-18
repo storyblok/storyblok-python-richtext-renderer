@@ -19,6 +19,9 @@ class TestPick(unittest.TestCase):
         }
 
         self.assertEqual(pick(attrs, allowed), result)
+    
+    def test_pick_without_object(self):
+        self.assertEqual(pick({}, []), {})
 
 
 if __name__ == "__main__":

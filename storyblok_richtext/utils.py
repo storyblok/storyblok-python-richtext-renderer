@@ -1,4 +1,5 @@
-def pick(attrs, allowed):
+def pick(attrs: dict, allowed: list) -> dict:
+    ''' Return a dictionary with specific keys in allowed '''
     if attrs is None:
         return null
 
