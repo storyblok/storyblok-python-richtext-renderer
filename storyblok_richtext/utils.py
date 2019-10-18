@@ -18,8 +18,9 @@ def is_string(text: any) -> bool:
     return isinstance(text, str)
 
 
-def is_function(fn):
-    return str(type(fn)) != "<class 'function'>"
+def is_function(fn: any) -> bool:
+    ''' Return if a fn value is a function '''
+    return str(type(fn)) == "<class 'function'>"
 
 
 def get_tag(tag, ending):
