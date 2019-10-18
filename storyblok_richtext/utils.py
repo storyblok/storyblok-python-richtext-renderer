@@ -13,7 +13,8 @@ def pick(attrs: dict, allowed: list) -> dict:
     return h
 
 
-def is_string(text):
+def is_string(text: any) -> bool:
+    ''' Return if a text value is a string'''
     return isinstance(text, str)
 
 
