@@ -8,10 +8,12 @@ class Richtext:
 
     def __init__(self, schema = None):
         if schema is None:
-            schema = html_schema
+            self.nodes = html_schema.nodes
+            self.marks = html_schema.marks
+            return
 
-        self.nodes = schema.nodes
-        self.marks = schema.marks
+        self.nodes = schema.get('nodes')
+        self.marks = schema.get('marks')
     
     def render(self, data):
         html_string = ''

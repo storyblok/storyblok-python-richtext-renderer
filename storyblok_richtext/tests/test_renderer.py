@@ -249,3 +249,36 @@ class TestRichtext(unittest.TestCase):
         expected = '<ol><li><p>Item 1</p></li><li><p>Item 2</p></li><li><p>Item 3</p></li></ol>'
 
         self.assertEqual(resolver.render(data), expected)
+
+    def test_render_with_custom_schema(self):
+        custom = {
+            'nodes': {
+                'paragraph': lambda _ : { 'tag': 'p' }
+            },
+            'marks': {
+                'strike': lambda _ : { 'tag': 'strike' }
+            }
+        }
+
+        custom_object = Richtext(schema=custom)
+
+        data = {
+            'type': 'doc',
+            'content': [{
+                'type': 'paragraph',
+                'content': [{
+                    'type': 'text',
+                    'text': 'some text after ',
+                }, {
+                    'text': 'strike text',
+                    'type': 'text',
+                    'marks': [{
+                        'type': 'strike'
+                    }]
+                }]
+            }]
+        }
+
+        expected = '<p>some text after <strike>strike text</strike></p>'
+
+        self.assertEqual(custom_object.render(data), expected)
