@@ -38,6 +38,14 @@ resolver.render(data) # renders a html string: '<hr />'
 
 The Richtext class can be receive a single parameter called `schema`. This parameter must be a dictionary with the two fields, `nodes` and `marks`. This fields can be dictionaries like as `storyblok_richtext/html_schema.py` file.
 
+### Testing
+
+We use unittest module for tests. In terminal, execute:
+
+```sh
+python -m unittest discover storyblok_richtext/tests -v
+```
+
 ## Contribution
 
 Fork me on [Github](https://github.com/storyblok/storyblok-python-richtext-renderer)
