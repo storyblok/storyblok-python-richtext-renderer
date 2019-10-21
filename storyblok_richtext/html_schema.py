@@ -13,22 +13,22 @@ def code_block(node):
           'pre',
           {
             'tag': 'code',
-            'attrs': node.attrs
+            'attrs': node.get('attrs')
           }
         ]
       }
 
 
 def heading(node):
-    level = node.attrs.level
-    return return_dict('single_tag', 'h{}'.format(level))
+    level = node.get('attrs').get('level')
+    return return_dict('tag', 'h{}'.format(level))
 
 
 def image(node):
     return {
-        'singleTag': [{
-          tag: 'img',
-          attrs: utils.pick(node.attrs, ['src', 'alt', 'title'])
+        'single_tag': [{
+          'tag': 'img',
+          'attrs': utils.pick(node.get('attrs'), ['src', 'alt', 'title'])
         }]
     }
 
@@ -37,7 +37,7 @@ def link(node):
     return {
         'tag': [{
           'tag': 'a',
-          'attrs': node.attrs
+          'attrs': node.get('attrs')
         }]
     }
 
@@ -46,7 +46,7 @@ def styled(node):
     return {
         'tag': [{
           'tag': 'span',
-          'attrs': node.attrs
+          'attrs': node.get('attrs')
         }]
     }
 
