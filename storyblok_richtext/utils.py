@@ -33,8 +33,8 @@ def get_closing_tag(tag: str) -> str:
     return "</{}>".format(tag)
 
 
-def render_tag(tags, ending):
-    if isinstance(tags, str):
+def render_tag(tags, ending = ''):
+    if is_string(tags):
         return get_tag(tags, ending)
 
     _tag = []
@@ -43,11 +43,12 @@ def render_tag(tags, ending):
         if is_string(tag):
             _tag.append(get_tag(tag, ending))
         else:
-            h = "<{}".format(tag.tag)
-            if tag.attrs:
-                for key in tag.attrs:
-                    value = tag.attrs[key]
-                    if value == None:
+            h = "<{}".format(tag.get('tag'))
+            attrs = tag.get('attrs')
+            if attrs:
+                for key in attrs.keys():
+                    value = attrs[key]
+                    if value != None:
                         h += ' {}="{}"'.format(key, value)
             
             _tag.append("{}{}>".format(h, ending))
