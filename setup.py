@@ -7,7 +7,7 @@ setup(
     author='Emanuel Souza',
     author_email='eg@storyblok.com',
     url='https://github.com/storyblok/storyblok-python-richtext-renderer',
-    download_url = 'https://github.com/storyblok/storyblok-python-richtext-renderer/archive/0.0.1.tar.gz',
+    download_url = 'https://github.com/storyblok/storyblok-python-richtext-renderer/archive/0.1.0.tar.gz',
     license='MIT',
     install_requires=[],
     packages=[
