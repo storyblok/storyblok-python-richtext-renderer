@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='storyblok_richtext',
-    version='0.0.1',
+    version='0.1.0',
     description='Storyblok Python library for Richtext component',
     author='Emanuel Souza',
     author_email='eg@storyblok.com',
