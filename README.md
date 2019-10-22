@@ -5,7 +5,7 @@ The utility class for renderer HTML from Richtext component in Storyblok.
 ## Install
 
 ```sh
-pip install storyblok_richtext
+pip install storyblok-richtext
 ```
 
 ## Usage
