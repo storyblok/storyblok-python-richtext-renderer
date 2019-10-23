@@ -34,7 +34,7 @@ class Richtext:
                 if mark:
                     data.append(utils.render_opening_tag(mark.get('tag')))
         
-        node = self.get_matchin_node(item)
+        node = self.get_matching_node(item)
 
         if node is not None and node.get('tag'):
             data.append(utils.render_opening_tag(node.get('tag')))
@@ -70,7 +70,7 @@ class Richtext:
 
         return None
     
-    def get_matchin_node(self, item):
+    def get_matching_node(self, item):
         _type = item.get('type')
         fn = self.nodes.get(_type)
 
