@@ -36,7 +36,7 @@ resolver.render(data) # renders a html string: '<hr />'
 
 ### How to define a custom schema for resolver?
 
-Make a copy of the default schema (storyblok_richtext/html_schema.py)[https://github.com/storyblok/storyblok-python-richtext-renderer/blob/master/storyblok_richtext/html_schema.py] and your own schema as parameter to the Richtext class.
+Make a copy of the default schema [storyblok_richtext/html_schema.py](https://github.com/storyblok/storyblok-python-richtext-renderer/blob/master/storyblok_richtext/html_schema.py) and your own schema as parameter to the Richtext class.
 
 ```py
 resolver = Richtext(your_custom_schema)
