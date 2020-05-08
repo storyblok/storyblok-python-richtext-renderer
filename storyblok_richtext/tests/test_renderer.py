@@ -282,3 +282,24 @@ class TestRichtext(unittest.TestCase):
         expected = '<p>some text after <strike>strike text</strike></p>'
 
         self.assertEqual(custom_object.render(data), expected)
+    
+    def test_render_link_tag_email(self):
+        data = {
+            'type': 'doc',
+            'content': [{
+                'text': 'an email link',
+                'type': 'text',
+                'marks': [{
+                    'type': 'link',
+                    'attrs': {
+                        'href': 'email@client.com',
+                        'target': '_blank',
+                        'linktype': 'email'
+                    }
+                }]
+            }]
+        }
+
+        expected = '<a href="mailto:email@client.com" target="_blank" linktype="email">an email link</a>'
+
+        self.assertEqual(resolver.render(data), expected)
