@@ -40,6 +40,21 @@ The Richtext class can be receive a single parameter called `schema`. This param
 
 ### Testing
 
+Before the testing, we advise you to use an **environment virtualization tool**, for example, virtualenv:
+
+```sh
+# use virtualenv to create the environment
+virtualenv -p python3 .
+
+# activate the environment
+source bin/activate
+
+# you can execute the tests!
+
+# to desactivate the environment
+deactivate
+```
+
 We use unittest module for tests. In terminal, execute:
 
 ```sh
