@@ -303,3 +303,25 @@ class TestRichtext(unittest.TestCase):
         expected = '<a href="mailto:email@client.com" target="_blank" linktype="email">an email link</a>'
 
         self.assertEqual(resolver.render(data), expected)
+
+    def test_render_link_tag_with_anchor(self):
+        data = {
+            'type': 'doc',
+            'content': [{
+                'text': 'link text',
+                'type': 'text',
+                'marks': [{
+                    'type': 'link',
+                    'attrs': {
+                        'href': '/link',
+                        'target': '_blank',
+                        'uuid': '300aeadc-c82d-4529-9484-f3f8f09cf9f5',
+                        'anchor': 'anchor-text'
+                    }
+                }]
+            }]
+        }
+
+        expected = '<a href="/link#anchor-text" target="_blank" uuid="300aeadc-c82d-4529-9484-f3f8f09cf9f5">link text</a>'
+
+        self.assertEqual(resolver.render(data), expected)
