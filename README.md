@@ -1,6 +1,6 @@
 # storyblok-python-richtext-renderer
 
-The utility class for renderer HTML from Richtext component in Storyblok.
+This package allows you to get an HTML string from the [richtext field](https://www.storyblok.com/docs/richtext-field) of Storyblok.
 
 ## Install
 
@@ -20,7 +20,7 @@ from storyblok_richtext import Richtext
 resolver = Richtext()
 ```
 
-And now use the object with `render()` function
+Use the function `render()` to get the html string from your richtext field.
 
 ```py
 # code below ...
@@ -36,7 +36,11 @@ resolver.render(data) # renders a html string: '<hr />'
 
 ### How to define a custom schema for resolver?
 
-The Richtext class can be receive a single parameter called `schema`. This parameter must be a dictionary with the two fields, `nodes` and `marks`. This fields can be dictionaries like as `storyblok_richtext/html_schema.py` file.
+Make a copy of the default schema [storyblok_richtext/html_schema.py](https://github.com/storyblok/storyblok-python-richtext-renderer/blob/master/storyblok_richtext/html_schema.py) and add your own schema as parameter to the Richtext class.
+
+```py
+resolver = Richtext(your_custom_schema)
+```
 
 ### Testing
 
@@ -56,9 +60,12 @@ deactivate
 ```
 
 We use unittest module for tests. In terminal, execute:
+=======
+
+We use unittest module for tests. You can execute the following task to run the tests:
 
 ```sh
-python -m unittest discover storyblok_richtext/tests -v
+$ python -m unittest discover storyblok_richtext/tests -v
 ```
 
 ## Contribution
