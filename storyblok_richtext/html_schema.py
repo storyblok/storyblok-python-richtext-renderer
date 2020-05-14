@@ -34,10 +34,22 @@ def image(node):
 
 
 def link(node):
+    attrs = node.get('attrs')
+    linktype = attrs.get('linktype', 'url')
+    anchor = attrs.get('anchor', None)
+
+    if (linktype == 'email'):
+        attrs['href'] = 'mailto:' + attrs.get('href')
+    
+    if (anchor):
+        attrs['href'] = attrs.get('href') + '#' + anchor
+        del attrs['anchor']
+
+
     return {
         'tag': [{
           'tag': 'a',
-          'attrs': node.get('attrs')
+          'attrs': attrs
         }]
     }
 
