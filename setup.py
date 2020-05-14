@@ -2,12 +2,12 @@ from setuptools import setup
 
 setup(
     name='storyblok_richtext',
-    version='0.1.1',
+    version='0.2.0',
     description='Storyblok Python library for Richtext component',
     author='Emanuel Souza',
     author_email='eg@storyblok.com',
     url='https://github.com/storyblok/storyblok-python-richtext-renderer',
-    download_url = 'https://github.com/storyblok/storyblok-python-richtext-renderer/archive/0.1.1.tar.gz',
+    download_url = 'https://github.com/storyblok/storyblok-python-richtext-renderer/archive/0.2.0.tar.gz',
     license='MIT',
     install_requires=[],
     packages=[
