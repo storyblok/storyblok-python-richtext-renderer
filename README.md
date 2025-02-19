@@ -1,5 +1,8 @@
 # storyblok-python-richtext-renderer
 
+> [!WARNING]  
+> This package is deprecated and will not be maintained.
+
 This package allows you to get an HTML string from the [richtext field](https://www.storyblok.com/docs/richtext-field) of Storyblok.
 
 ## Install
